@@ -1,0 +1,353 @@
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\documentclass[aspectratio=169]{beamer}
+% use 16:9 in new slides!
+
+\usepackage{tikz}
+
+\usepackage[skins]{tcolorbox}
+\def\bpr#1#2{
+\begin{tcolorbox}
+[boxsep=.15cm,left=.2cm,right=.2cm,oversize,boxrule=0mm,
+colback=green!55!blue!20!white!60,
+colframe=red!50!yellow!50!white,
+colbacktitle=blue!50, 
+coltitle=black,enhanced,drop fuzzy shadow,
+fonttitle=\bfseries,title=#1]
+#2
+\end{tcolorbox}
+}
+
+\def\bdef#1#2{
+\begin{tcolorbox}
+[boxsep=.15cm,left=.2cm,right=.2cm,oversize,boxrule=0mm,
+colback=white!60,
+colframe=red!50!yellow!50!white,
+colbacktitle=green!50!yellow!60!gray, 
+coltitle=black,enhanced,drop fuzzy shadow,
+fonttitle=\bfseries,title=#1]
+#2
+\end{tcolorbox}
+}
+
+\def\bthe#1#2{
+\begin{tcolorbox}
+[boxsep=.15cm,left=.2cm,right=.2cm,oversize,boxrule=0mm,
+colback=white!60,
+colframe=red!50!yellow!50!white,
+colbacktitle=red!52, 
+coltitle=black,enhanced,drop fuzzy shadow,
+fonttitle=\bfseries,title=#1]
+#2
+\end{tcolorbox}
+}
+
+\def\tcb#1{
+\begin{tcolorbox}
+[boxsep=.15cm,left=.2cm,right=.2cm,oversize,boxrule=0mm,
+colback=white!60,
+colframe=red!50!yellow!50!white,
+colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
+#1
+\end{tcolorbox}
+}
+
+
+
+\definecolor{UMBlue}{RGB}{5,32,103}
+\definecolor{UMYellow}{RGB}{255,216,0}
+%\usetheme{Madrid}
+\setbeamertemplate{headline}{
+  \leavevmode%
+  \begin{minipage}{0.75\paperwidth}
+  \vspace{1.2ex}\hspace{-0.245\paperwidth}
+  \resizebox{\paperwidth}{3ex}{
+    \tikz{
+      \fill [color=UMBlue] (0,0) rectangle (10, 0.13);
+      \fill [color=UMYellow] (0,-0.1) rectangle (10, -0.18);
+    }
+  }
+  \begin{beamercolorbox}[wd=\linewidth,ht=2.5ex,dp=1.125ex]{section}
+    \insertsubsectionnavigationhorizontal{\linewidth}{}{Slide \insertpagenumber}
+  \end{beamercolorbox}
+  \end{minipage}
+  \begin{minipage}{0.23\paperwidth}
+  \hspace{0.2em}
+  \includegraphics[width=\linewidth]{assets/logo.png}
+  \end{minipage}
+}
+
+\setbeamercolor{title}{fg=UMBlue}
+\setbeamercolor{frametitle}{fg=UMBlue}
+\setbeamercolor{structure}{fg=UMBlue}
+
+\title[Course number]{Basic Git Workshop} 
+\author[]{TechJI}
+\institute[UMJI-SJTU]
+{
+	University of Michigan - Shanghai Jiaotong University
+	\\\medskip
+	Joint Institute
+}
+\date{2023.10.8}
+%----------------------------------------------------------------------------------------
+%	Highlight the title of the current section
+%----------------------------------------------------------------------------------------
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+
+
+\begin{document}
+% insert title page---------------------------
+\maketitle
+%insert contents------------------------------
+\begin{frame}
+  \frametitle{Table of Contents}
+  \tableofcontents
+\end{frame}
+
+\section{Introduction}
+\subsection{Git}
+% insert a sample frame without animation--------------------------------
+\begin{frame}
+  \frametitle{What is Git?}
+  Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+\end{frame}
+
+\begin{frame}
+  \frametitle{When to use Git?}
+
+  \begin{itemize}
+    \item Writing code
+    \item Managing docs
+    \item Managing projects
+    \item Version control
+    \item Team corporation
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Git Installation}
+  You can go to the official website to download the installation package and refer to $Installation_git.md$ file in the repo.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Where to use Git?}
+  We first introduce shell commands, then we will use Git in the shell.
+\end{frame}
+
+\subsection{Shell}
+\begin{frame}
+  \frametitle{What is Shell?}
+  Shell is a program that takes commands from the keyboard and gives them to the operating system to perform. It is also referred to as a command-line interpreter or CLI.
+  \\
+  Common shells:
+  \begin{itemize}
+    \item Bash
+    \item Zsh
+    \item etc
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{A brief history of bash}
+  \begin{figure}[h]
+    \centering
+    \includegraphics[height=3cm]{./assets/bash_logo.png}
+  \end{figure}
+  \begin{itemize}
+    \item Born: 1989
+    \item Probably played Pokémon on the Game Boy
+    \item Is an umbrella term for zsh, fish, …
+    \item Runs on Unix-like environments
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{A brief history of Unix}
+  \begin{figure}[h]
+    \centering
+    \includegraphics[height=3cm]{./assets/unix_logo.png}
+  \end{figure}
+  \begin{itemize}
+    \item Born: 1969
+    \item Probably listened to Michael Jackson
+    \item Gave rise to Linux, BSD, and Mac OS
+    \item We call them ``Unix-like''
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Unix: The Good Part}
+  The Unix philosophy (paraphrased):
+  \begin{itemize}
+    \item Store data in plain text
+    \item Hierarchical file system
+    \item Everything is a file
+    \item One tool does one thing
+    \item Tools together strong
+  \end{itemize}
+  \begin{block}{Quote}
+    The power of a system comes more from the relationships among programs than
+    from the programs themselves.
+    \begin{flushright}
+      — Brian Kernighan and Rob Pike
+      \footnote{The UNIX Programming Environment. 1984. viii}
+    \end{flushright}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{How to open a Shell?}
+  \begin{itemize}
+    \item Windows: cmd, powershell
+    \item Mac: Terminal
+    \item Linux: Terminal
+  \end{itemize}
+\end{frame}
+
+\section{Basic Commands}
+
+\begin{frame}[fragile]
+  \frametitle{Files}
+  Each of these is a different \textbf{file}:
+  \begin{itemize}
+    \item \tt{a}
+    \item \tt{.a} (Hidden)
+    \item \tt{a.txt}
+    \item \tt{A.txt}
+    \item \tt{A.TXT}
+  \end{itemize}
+
+  \begin{block}{Note}
+    The dot and suffix are part of the filename. Windows users please turn on \textbf{show file extensions}.
+    \newline \newline
+    \textbf{Avoid spaces and special characters} (except \verb|._-|).
+    If you have to, surround filename in quotes:
+    \tt{`Lab Report (3) final FINAL-1.docx'}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Directories}
+  Each of these is a \textbf{directory} (``dir'' for short):
+  \begin{itemize}
+    \item \tt{hteam-10086/}
+    \item \tt{hteam-10086/h1/}
+    \item \tt{hteam-10086/.gitea/} (Hidden dir)
+  \end{itemize}
+
+  \begin{block}{Convention}
+    For clarity, we add a slash (\tt{/}) to the end of a directory in the
+    slides. However, in reality it often makes no difference.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{\tt{cd, pwd}: Changing directory}
+  \begin{itemize}
+    \item \tt{cd hteam-10086/}
+    \item \tt{pwd}
+  \end{itemize}
+  \begin{block}{Explanation}
+    \begin{itemize}
+      \item \tt{cd}: "change directory"
+      \item \tt{pwd}: "print working directory"
+      \item \tt{../} means "parent directory"
+      \item \tt{./} means "current directory"
+      \item \tt{\~{}} means "home directory"
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Paths}
+  File $\cup$ directory = \textbf{path}.
+  \footnote{At least in the scope of this workshop.}
+  \newline \newline
+
+  No paths under the same directory can bear the same name.
+  These \textbf{cannot} coexist:
+  \begin{itemize}
+    \item \tt{hteam-10086/h1/}, a directory
+    \item \tt{hteam-10086/h/ex1.m}, a regular file
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Absolute \& relative paths}
+  \begin{itemize}
+    \item Paths beginning with \tt{/} are absolute: \tt{/usr/bin/cat}
+    \item Otherwise it is relative: \tt{hteam-10086}
+  \end{itemize}
+
+  If you know where you are, you can convert a relative path to an absolute one.
+\end{frame}
+
+\section{Basic Git}
+\begin{frame}
+  \frametitle{Some basic git commands}
+  Tell Git who you are:
+  \begin{itemize}
+    \item git config --global user.name "Your Name"
+    \item git config --global user.email "Your Email"
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Some basic git commands}
+  How to use "git add":
+  \begin{itemize}
+    \item git add <file>
+    \item git add *
+    \item git add .
+    \item git add -A
+  \end{itemize}
+  use "git status" to check the status of your repo.
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Some basic git commands}
+  How to use "git commit":
+  \begin{itemize}
+    \item git commit -m "commit message"
+  \end{itemize}
+  If you only type: 
+  \begin{itemize}
+    \item git commit
+  \end{itemize}
+  then you will enter vim /other default editor to write your commit message.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Some basic git commands}
+  How to use "git rm":
+  \begin{itemize}
+    \item git rm --cached <file>
+  \end{itemize}
+  Then, git will stop tracking this file, but the file still exists in your repo.
+\end{frame}
+
+
+
+
+
+\section{Lazygit}
+
+
+% Insert a thank your frame ------------------------------------------------
+\begin{frame}
+  \Huge{\centerline{Thank you!}}
+\end{frame}
+
+
+\end{document}
