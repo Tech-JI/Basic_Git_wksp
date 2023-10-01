@@ -1,7 +1,5 @@
 # Git
 
-[commit 格式](https://www.conventionalcommits.org/en/v1.0.0/ )
-
 将一个文件夹变为git仓库：`git init`  
 查看文件情况：`git status`  
 追踪文件更新：`git add`  
@@ -38,9 +36,12 @@
 `git config --global alias.unstage 'reset HEAD --'`  
 `git config --global alias.last 'log -1 HEAD'`  
 
-# lazygit
+## [commit 格式](https://www.conventionalcommits.org/en/v1.0.0/ )
+
+# [Lazygit](https://github.com/jesseduffield/lazygit)
 左右键移动面板  
-`x` 查看帮助  
+`h/j/k/l`移动面板  
+`x/?` 查看帮助  
 `a` stage/unstage全部文件  
 `空格` stage/unstage一个文件  
 `回车` stage一部分  
@@ -51,7 +52,6 @@
 `C` 进入vim写commit  
 `d` 删除更改  
 `D` 查看更多放弃更改的选项  
-
 `esc`退会到上一层面板
 
 ## 分支面板：

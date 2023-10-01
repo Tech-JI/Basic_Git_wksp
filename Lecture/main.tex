@@ -136,7 +136,7 @@ colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
 
 \begin{frame}
   \frametitle{Git Installation}
-  You can go to the official website to download the installation package and refer to $Installation_git.md$ file in the repo.
+  You can go to the official website to download the installation package and refer to $Installation\_git$ file in the repo.
 \end{frame}
 
 \begin{frame}
@@ -325,7 +325,18 @@ colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
   \begin{itemize}
     \item git commit
   \end{itemize}
-  then you will enter vim /other default editor to write your commit message.
+  then you will enter vim /other default editor to write your commit message.\\
+  \href{https://www.conventionalcommits.org/en/v1.0.0/}{How to write commit message?}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Some basic git commands}
+  How to use "git push":
+  \begin{itemize}
+    \item git push origin <branch>
+    \item git push origin master
+    \item git push
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -343,20 +354,108 @@ colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
   \begin{itemize}
     \item git rm <file>
     \item git commit -m "remove file"
-    \item git push origin <your branch>
+    \item git push
   \end{itemize}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Some basic git commands}
+  How to use "git pull":
+  \begin{itemize}
+    \item git pull
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Some basic git commands}
+  How to use branch in git:
+  \begin{itemize}
+    \item create new branch: git branch <branch>
+    \item create new branch(based on current branch): git checkout -b <branch>
+    \item go to other branch: git checkout <branch>
+    \item deleta branch: git branch -d <branch>
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Some basic git commands}
+  How to use "git merge":
+  For example, we are now on branch "master", and we want to merge branch "dev" to "master":
+  \begin{itemize}
+    \item git checkout dev
+    \item git pull
+    \item git checkout master
+    \item git merge dev
+    \item git push
+  \end{itemize}
+  If you encounter conflicts, you need to solve them manually. You can use "lazygit" or search for "Git merge tool" online.
+\end{frame}
 
 
+\begin{frame}
+  \frametitle{Some basic git commands}
+  How to use "git revert":
+  \begin{itemize}
+    \item git revert <commit-SHA>
+    \item git revert HEAD
+  \end{itemize}
+\end{frame}
 
 \section{Lazygit}
+\begin{frame}{Lazygit}
+  \href{https://github.com/jesseduffield/lazygit}{Lazygit} is a powerful Git frontend that integrates many git commands. It is written in Go and is cross-platform.
 
+  \pause
 
-% Insert a thank your frame ------------------------------------------------
-\begin{frame}
-  \Huge{\centerline{Thank you!}}
+  Why lazygit?
+  \begin{itemize}
+      \item Fast, TUI
+      \item Easy to use
+      \item Powerful
+  \end{itemize}
+
+  Other alternatives are \href{https://github.com/Extrawurst/gitui}{Gitui} which is written in Rust.
 \end{frame}
+
+\begin{frame}{Tasks\footnote{Operations with * will rewrite history.}}
+          \begin{itemize}[<+->]
+              \item Install lazygit. You may refer to $Installation\_Lazygit$ in repo.
+              \item Clone your repository.
+              \item cd into your repo and type "lazygit" in terminal
+              \item Navigate the interface (h/j/k/l/[/]/arrow keys).
+              \item Stage/Unstage files (a/A).
+              \item Commit changes (c).
+              \item Push files (P).
+              \item Create/delete branches (n/d).
+              \item Checkout branches (sp).
+              \item Merge branches (M).
+          \end{itemize}
+\end{frame}
+
+
+\begin{frame}{References}
+  \begin{itemize}
+      \item Pro Git. \href{https://git-scm.com/book/en/v2}{Git - Book}
+      \item fakefred/bash-workshop
+      \item linsyking/git-wksp
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Reading Materials}
+  \begin{itemize}
+      \item Pro Git. \href{https://git-scm.com/book/en/v2}{Git - Book}
+      \item TheCW-Git \emph{Bilibili}. \href{https://www.bilibili.com/video/BV1Yx411f7Cu}{BV1Yx411f7Cu}
+      \item TheCW-Lazygit \emph{Bilibili}. \href{https://www.bilibili.com/video/BV1gV411k7fC}{BV1gV411k7fC}
+      \item \href{https://missing.csail.mit.edu/2020/course-shell/}{MIT Course}
+      \item \href{https://learngitbranching.js.org/?locale=zh_CN}{Learn git online}
+      \item \href{https://www.liaoxuefeng.com/wiki/896043488029600}{Liao Xuefeng's Git Tutorial(Chinese)}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \Huge{\textcolor{UMBlue}{Thanks for listening!}}
+\end{frame}
+
 
 
 \end{document}
