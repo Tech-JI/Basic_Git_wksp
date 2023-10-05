@@ -16,11 +16,11 @@ GitHub是一个在线软件源代码托管服务平台，使用Git作为版本�
 
 #### 配置用户名和密码
 
-打开命令行，输入以下两条命令（输一条敲一次回车）:
+打开命令行，输入以下两条命令（输一条敲一次回车，不要复制`$`）:
 
 ```bash
-git config --global user.name "your_username"
-git config --global user.email "your@email.com"
+$ git config --global user.name "your_username"
+$ git config --global user.email "your@email.com"
 ```
 
 注意，`your_username`替换为你刚刚Github账号的用户名，`your@email.com`替换为你注册用的邮箱。（外面的双引号需保留）
@@ -31,10 +31,10 @@ git config --global user.email "your@email.com"
 
 简单来说，这一步是为了能让Github验证你的身份，让你能顺利的下载和上传代码。ssh-key是一种密码，通常保存在两个文件中，分别是私钥和公钥。公钥分享给他人，用于验证你的身份；私钥需要自己妥善保存，不可分享给他人。
 
-同样还是在命令行里，运行：
+同样还是在命令行里，运行（不要复制`$`）：
 
 ```bash
-ssh-keygen -t rsa -C "your@email.com"
+$ ssh-keygen -t rsa -C "your@email.com"
 ```
 
 同样的这里要替换成你刚刚注册用的邮箱。然后会要你依次输入一些信息，如果你不想管，可以一路`enter`下去。这些依次输入参数的具体含义如下：
@@ -49,11 +49,11 @@ ssh-keygen -t rsa -C "your@email.com"
 
 #### 上传ssh-key
 
-首先，你需要找到你刚刚创建的key。依次运行以下两条命令：
+首先，你需要找到你刚刚创建的key。依次运行以下两条命令（不要复制`$`）：
 
 ```bash
-cd ~/.ssh
-cat id_rsa.pub
+$ cd ~/.ssh
+$ cat id_rsa.pub
 ```
 
 意义分别是：
@@ -89,11 +89,11 @@ cat id_rsa.pub
 
 <img src="./img/confirm-3.png" width="40%" height="40%"/>
 
-最后，回到你的命令行，依次运行以下命令（#号后面的不用复制）：
+最后，回到你的命令行，依次运行以下命令（#号后面的不用复制，不要复制`$`）：
 
 ```bash
-cd ~/Desktop                      # 进入桌面
-git clone <your_repo_address>     # clone你刚刚创建的项目
+$ cd ~/Desktop                      # 进入桌面
+$ git clone <your_repo_address>     # clone你刚刚创建的项目
 ```
 
 注意`<your_repo_address>`要替换成你刚刚复制的项目地址，**不要有尖括号或者双引号**。
@@ -112,7 +112,7 @@ Git GUI简单来说就是**一类**可以免去你敲命令行的痛苦的桌面
 
 这里推荐一些：
 
-+ [Lazygit](https://github.com/jesseduffield/lazygit) (Windows, Mac, Linux)
++ [Lazygit](https://github.com/jesseduffield/lazygit) (Windows, Mac, Linux) -> 可以参考本仓库内`Installation_Lazygit.md`
 
 * Sourcetree (Windows, Mac)
 * GitKraken (Windows, Mac, Linux)
