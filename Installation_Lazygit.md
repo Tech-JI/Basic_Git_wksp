@@ -53,7 +53,7 @@ $ source ~/.zshrc
 
 ## Linux Installation
 
-Use package manager.
+Use package manager or refer to the [official website](https://github.com/jesseduffield/lazygit).
 
 ## Test Installation
 
