@@ -58,3 +58,13 @@ Use package manager or refer to the [official website](https://github.com/jessed
 ## Test Installation
 
 Open your terminal and `cd` into a git repository. Then run `lazygit`, if a TUI surface is generated, it is installed properly.
+
+## Difference between using lazygit and writing commands in terminal
+
+For Lazygit users, one single push takes about 10 seconds.
+
+![](./img/lazygit.gif)
+
+For command line users,  one single push takes about 30 seconds or longer.
+
+![](./img/git.gif)
