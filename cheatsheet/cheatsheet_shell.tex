@@ -1,8 +1,8 @@
 \documentclass[a4paper, twocolumn]{article}
 \usepackage[margin=2cm]{geometry}
 
-\title{Bash Cheatsheet}
-\author{Frederick Yin}
+\title{Shell Cheatsheet}
+\author{TechJI}
 \date{\today}
 
 \renewcommand{\tt}{\texttt}
@@ -11,7 +11,11 @@
 \maketitle
 \section{Files \& Directories}
 \begin{tabular}{ll}
-    \tt{cat a}              & print a                               \\
+    \verb|\|                & root directory                   \\
+    \verb|~|                & home directory                   \\
+    \verb|.|                & current directory                   \\
+    \verb|..|               & parent directory                   \\
+    \tt{cat a}              & print a (a is a file)                 \\
     \tt{cd dir/}            & go to dir/                            \\
     \tt{cd ..}              & go to parent dir                      \\
     \tt{pwd}                & print current dir                     \\
@@ -82,49 +86,4 @@
     \verb|\W \S \B|     & invert \verb|\w \s \b|
 \end{tabular}
 
-
-\section{Scripting}
-\tt{if [[ \underline{TEST} ]]; then BODY; fi}
-\vspace{0.3cm}
-
-\begin{tabular}{cccccc}
-    \verb|-eq| & \verb|-ne| & \verb|-le| & \verb|-lt| & \verb|-ge| & \verb|-gt| \\
-    $=$        & $\neq$     & $\leq$     & $<$        & $\geq$     & $>$
-\end{tabular}
-\vspace{0.3cm}
-
-\begin{tabular}{ll}
-    \verb|-z $a|        & empty string                              \\
-    \verb|-n $a|        & not empty string                          \\
-    \verb|$a = $b|      & strings are the same                      \\
-    \verb|$a != $b|     & strings are different                     \\
-    \verb|-e $file|     & file exists                               \\
-    \verb|-f $file|     & is regular file                           \\
-    \verb|-d $dir|      & is directory
-\end{tabular}
-\vspace{0.5cm}
-
-\tt{if (( \underline{TEST} )); then BODY; fi}
-\vspace{0.3cm}
-
-\begin{tabular}{ll}
-    \verb|%|            & modulo                                    \\
-    \verb|**|           & exponentiation                            \\
-    \verb|== !=|        & $= \neq$                                  \\
-    \verb|< > <= >=|    & $< > \leq \geq$                           \\
-    \verb!&& ||!        & logical AND/OR
-\end{tabular}
-\vspace{0.5cm}
-
-\tt{for VAR in \underline{LIST}; do BODY; done}
-\vspace{0.3cm}
-
-\begin{tabular}{ll}
-    \verb|{01..10}|     & 01, 02, …, 10                             \\
-    \verb|{2..10..2}|   & 2, 4, …, 10                               \\
-    \verb|$()|          & output of command
-\end{tabular}
-\vspace{0.3cm}
-
-If necessary, \verb|IFS=$'\n'|
 \end{document}

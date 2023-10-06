@@ -1,0 +1,100 @@
+\documentclass[a4paper]{article}
+\usepackage[margin=2cm]{geometry}
+
+\title{Git\&Lazygit Cheatsheet}
+\author{Hydraallen}
+\date{\today}
+
+\renewcommand{\tt}{\texttt}
+
+\begin{document}
+\maketitle
+\section{Git Commands}
+\begin{tabular}{p{7.5cm} p{8cm}}
+    \tt{git init}                 & Initialize a folder as a Git repository \\
+    \tt{git status}               & Check the status of files \\
+    \tt{git add}                  & Track file updates \\
+    \tt{git add .}                & Add all modifications \\
+    \tt{git diff}                 & View changes \\
+    \tt{git reset}                & Untrack files \\
+    \tt{git config --global user.name "xxx"}    & Set the commit username globally \\
+    \tt{git config --global user.email "xxx"}   & Set the commit email globally \\
+    \tt{git config --global core.editor vim}    & Modify the commit editor to vim \\
+    \tt{git commit -m "xxx"}                 & Commit changes with a message (or omit -m for vim mode) \\
+    \tt{.gitignore}               & Ignore specific files by listing filenames \\
+    \tt{git rm --cached xxx}     & Stop tracking a specific file \\
+    \tt{git branch xxx} or \tt{git checkout -b xxx}         & Create a new branch \\
+    \tt{git checkout xxx}        & Switch to a branch \\
+    \tt{git merge another-branch-name}       & Merge branches \\
+    \tt{git branch -d xxx (-D for force delete)}    & Delete a branch \\
+    \tt{git push origin --delete}    & Delete a remote branch \\
+    \tt{git push --set-upstream origin +branch-name}   & Push changes to a remote branch \\
+    \tt{git config credential.helper store}   & Remember username and password \\
+    \tt{git clone +url}    & Clone a repository \\
+    \tt{git pull} or \tt{git fetch --all}   & Update local repository \\
+    \tt{git rm}   & Remove files \\
+    \tt{git rm --cached}   & Stop tracking \\
+    \tt{git mv file\_from file\_to}   & Rename a file \\
+    \tt{git log (-p)}   & View commit history (with changes) \\
+    \tt{git log --stat}   & View commit history with file statistics \\
+    \tt{git commit --amend}   & Amend the last commit \\
+    \tt{git reset HEAD <file>...}   & Unstage changes \\
+    \tt{git remote rename A B}   & Rename a remote repository \\
+
+\end{tabular}
+
+\section{Lazygit Commands}
+\begin{tabular}{p{6cm} p{8cm}}
+    \tt{h/j/k/l/arrow}    & Move between panels \\
+    \tt{?}        & View help \\
+    \tt{a}          & Stage/unstage all files \\
+    \tt{c} & Commit changes \\
+    \tt{p}        & Push changes \\ 
+    \tt{q}          & Quit \\
+    \tt{Space}      & Stage/unstage a file \\
+    \tt{Enter}      & Stage part of a file \\
+    \tt{A}          & Add changes to the previous commit \\
+    \tt{C}          & Enter vim to write a commit \\
+    \tt{d}          & Discard changes \\
+    \tt{D}          & View options to discard changes (Dangerous!) \\
+    \tt{[]} & Navigate between panel tabs \\
+    \tt{Esc}        & Return to the previous panel \\
+\end{tabular}
+
+\subsection{Branch Panel}
+\begin{tabular}{p{6cm} p{8cm}}
+    \tt{n} & Create a new branch \\
+    \tt{Space} & Switch between branches \\
+    \tt{M} & Merge changes from one branch to another (switch to the receiving branch first, then choose the branch with M) \\
+\end{tabular}
+\subsection{Commit Panel}
+\begin{tabular}{p{6cm} p{8cm}}
+    \tt{Enter} & View changes made in a commit \\
+    \tt{d} & Revert changes to a file \\
+    \tt{c} & Roll back to an old version \\
+    \tt{,.} & Navigate pages \\
+    \tt{<>} & Go to the top/bottom \\
+    \tt{/} & Search - supports \tt{vim} shortcuts \\
+    \tt{r/R} & Rename commit message, force push if already pushed \\
+    \tt{Space} & Roll back to a version \\
+    \tt{g} & Display reset options (soft: changes become uncommitted, then D in the file) \\
+    \tt{z/ctrl+z} & Undo/redo \\
+    \tt{c} & Copy commit \\
+    \tt{v} & Paste commit \\
+    \tt{d} & Delete commit \\
+    \tt{s} & Merge two commits \\
+    \tt{f} & Mark as a fix commit \\
+    \tt{Ctrl+f} & View all commits with a specific file \\
+    \tt{M} & View diff between commits \\
+\end{tabular}
+\subsection{Merge Conflicts}
+\begin{tabular}{p{6cm} p{8cm}}
+    \tt{Enter} & Enter the right-hand preview panel \\
+    Use \tt{Up/Down} keys & Select conflicts \\
+    Use \tt{Left/Right} keys & Navigate between different conflicts \\
+    \tt{Space} & Choose the desired part \\
+    \tt{b} & Keep both changes \\
+\end{tabular}
+
+
+\end{document}
