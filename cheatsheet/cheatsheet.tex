@@ -1,0 +1,130 @@
+\documentclass[a4paper, twocolumn]{article}
+\usepackage[margin=2cm]{geometry}
+
+\title{Bash Cheatsheet}
+\author{Frederick Yin}
+\date{\today}
+
+\renewcommand{\tt}{\texttt}
+
+\begin{document}
+\maketitle
+\section{Files \& Directories}
+\begin{tabular}{ll}
+    \tt{cat a}              & print a                               \\
+    \tt{cd dir/}            & go to dir/                            \\
+    \tt{cd ..}              & go to parent dir                      \\
+    \tt{pwd}                & print current dir                     \\
+    \tt{cp a b}             & copy a to b                           \\
+    \tt{cp a dir/}          & copy a into dir/                      \\
+    \tt{cp -r sub/ dir/}    & copy sub/ into dir/                   \\
+    \tt{mv a b}             & rename a to b                         \\
+    \tt{mv a dir/}          & move a into dir/                      \\
+    \tt{mv sub/ dir/}       & move sub/ into dir/                   \\
+    \tt{rm a}               & remove a                              \\
+    \tt{rm -r dir/}         & remove dir/                           \\
+    \tt{ls}                 & list files                            \\
+    \tt{ls -a}              & list files, incl. hidden              \\
+    \tt{ls -l}              & list files, show details              \\
+    \tt{ls dir/}            & list files under dir/                 \\
+    \tt{mkdir dir/}         & create dir/                           \\
+    \tt{mkdir -p dir/sub/}  & create dir/sub/ directly
+\end{tabular}
+
+\section{Utilities}
+\begin{tabular}{ll}
+    \tt{head -n 5 a}        & print first 5 lines of a              \\
+    \tt{grep pattern files} & grep for pattern in files             \\
+    \tt{grep -i}            & ignore case                           \\
+    \tt{grep -v}            & invert match                          \\
+    \tt{grep -o}            & only show matched part                \\
+    \tt{grep -E}            & extended regex                        \\
+    \tt{sort file}          & sort lines in file                    \\
+    \tt{sort -f}            & ignore case                           \\
+    \tt{sort -n}            & numerical order                       \\
+    \tt{sort -r}            & reverse                               \\
+    \tt{uniq}               & remove duplicate lines                \\
+    \tt{comm -12 a b}       & print lines in both a and b           \\
+    \tt{diff a b}           & difference between a and b
+\end{tabular}
+
+\section{Ctrl+}
+\begin{tabular}{ll}
+    \tt{W} & delete one word to the left                           \\
+    \tt{U} & delete everything to the left                         \\
+    \tt{K} & delete everything to the right                        \\
+    \tt{7} & undo                                                  \\
+    \tt{C} & abort                                                 \\
+    \tt{R} & search history                                        \\
+    \tt{L} & clear screen
+\end{tabular}
+
+\section{Regex (ERE)}
+\begin{tabular}{ll}
+    \verb|.|            & any character                             \\
+    \verb|\.|           & literal dot                               \\
+    \verb|[aeiou]|      & any vowel                                 \\
+    \verb|[^aeiou]|     & anything but a vowel                      \\
+    \verb|[0-9]|        & any digit                                 \\
+    \verb|[A-Za-z]|     & any letter                                \\
+    \verb|^|            & beginning of line                         \\
+    \verb|$|            & end of line                               \\
+    \verb|A?|           & 0 or 1 A                                  \\
+    \verb|A+|           & $\ge 1$ A's                               \\
+    \verb|A*|           & $\ge 0$ A's                               \\
+    \verb|A{,6}|        & 6 A's                                     \\
+    \verb|A{,6}|        & 0--6 A's                                  \\
+    \verb|A{4,6}|       & 4--6 A's                                  \\
+    \verb!(ls|cd|rm)!   & one of ls, cd, and rm                     \\
+    \verb|\w|           & letters, digits, \_                       \\
+    \verb|\s|           & whitespace                                \\
+    \verb|\b|           & boundary of word                          \\
+    \verb|\W \S \B|     & invert \verb|\w \s \b|
+\end{tabular}
+
+
+\section{Scripting}
+\tt{if [[ \underline{TEST} ]]; then BODY; fi}
+\vspace{0.3cm}
+
+\begin{tabular}{cccccc}
+    \verb|-eq| & \verb|-ne| & \verb|-le| & \verb|-lt| & \verb|-ge| & \verb|-gt| \\
+    $=$        & $\neq$     & $\leq$     & $<$        & $\geq$     & $>$
+\end{tabular}
+\vspace{0.3cm}
+
+\begin{tabular}{ll}
+    \verb|-z $a|        & empty string                              \\
+    \verb|-n $a|        & not empty string                          \\
+    \verb|$a = $b|      & strings are the same                      \\
+    \verb|$a != $b|     & strings are different                     \\
+    \verb|-e $file|     & file exists                               \\
+    \verb|-f $file|     & is regular file                           \\
+    \verb|-d $dir|      & is directory
+\end{tabular}
+\vspace{0.5cm}
+
+\tt{if (( \underline{TEST} )); then BODY; fi}
+\vspace{0.3cm}
+
+\begin{tabular}{ll}
+    \verb|%|            & modulo                                    \\
+    \verb|**|           & exponentiation                            \\
+    \verb|== !=|        & $= \neq$                                  \\
+    \verb|< > <= >=|    & $< > \leq \geq$                           \\
+    \verb!&& ||!        & logical AND/OR
+\end{tabular}
+\vspace{0.5cm}
+
+\tt{for VAR in \underline{LIST}; do BODY; done}
+\vspace{0.3cm}
+
+\begin{tabular}{ll}
+    \verb|{01..10}|     & 01, 02, …, 10                             \\
+    \verb|{2..10..2}|   & 2, 4, …, 10                               \\
+    \verb|$()|          & output of command
+\end{tabular}
+\vspace{0.3cm}
+
+If necessary, \verb|IFS=$'\n'|
+\end{document}

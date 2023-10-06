@@ -5,7 +5,14 @@
 % use 16:9 in new slides!
 
 \usepackage{tikz}
-
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{trees}
+\usepackage{hyperref}
+\usepackage{array}
 \usepackage[skins]{tcolorbox}
 \def\bpr#1#2{
 \begin{tcolorbox}
@@ -113,6 +120,20 @@ colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
   \tableofcontents
 \end{frame}
 
+\begin{frame}
+  \frametitle{Before we start}
+  \begin{itemize}
+      \item This is \textbf{not} a Linux workshop
+          (although I encourage you to use it).
+      \item This is \textbf{not} a Vim workshop
+          (although I encourage you to use it).
+      \item This is \textbf{not} a Bash workshop either.
+      \item We are organizing this workshop primarily because many students encountered difficulties when using Git in courses ENGR151 and SilverFOCS(VG100).
+      \item The most important part in this workshop is $lazygit$.
+      \item The target audience for this workshop is students who are unfamiliar with Git or do not understand the working principles of Git.
+  \end{itemize}
+\end{frame}
+
 \section{Introduction}
 \subsection{Git}
 % insert a sample frame without animation--------------------------------
@@ -208,7 +229,7 @@ colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
 \begin{frame}
   \frametitle{How to open a Shell?}
   \begin{itemize}
-    \item Windows: cmd, powershell
+    \item Windows: cmd, powershell, Git Bash
     \item Mac: Terminal
     \item Linux: Terminal
   \end{itemize}
@@ -292,6 +313,29 @@ colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
   If you know where you are, you can convert a relative path to an absolute one.
 \end{frame}
 
+\begin{frame}
+  \frametitle{\tt{ls}: Listing directories}
+  \begin{itemize}
+    \item ls
+    \item ls -a
+    \item ls -l
+    \item ls -la
+  \end{itemize}
+  \begin{block}{Explanation}
+      \begin{itemize}
+          \item \tt{ls}: ``list''
+          \item \tt{-a} is short for \tt{--all}
+          \item \tt{-l} enables long listing format
+          \item \tt{-la} = \tt{-l} + \tt{-a}
+      \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{More...}
+  More usage of Bash and Shell will be explored in the spring semester's Bash Workshop. You can refer to the cheatsheet in this repository.
+\end{frame}
+
 \section{Basic Git}
 \begin{frame}
   \frametitle{Some basic git commands}
@@ -306,13 +350,19 @@ colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
   \frametitle{Some basic git commands}
   How to use "git add":
   \begin{itemize}
-    \item git add <file>
+    \item git add $file$
     \item git add *
     \item git add .
     \item git add -A
   \end{itemize}
   use "git status" to check the status of your repo.
 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Some basic git commands}
+  If you want some files never be tracked by git, you can create a file named ".gitignore" in your repo, and write the file names in it.
+ 
 \end{frame}
 
 \begin{frame}
@@ -333,7 +383,7 @@ colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
   \frametitle{Some basic git commands}
   How to use "git push":
   \begin{itemize}
-    \item git push origin <branch>
+    \item git push origin $branch$
     \item git push origin master
     \item git push
   \end{itemize}
@@ -343,7 +393,7 @@ colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
   \frametitle{Some basic git commands}
   How to use "git rm":
   \begin{itemize}
-    \item git rm --cached <file>
+    \item git rm --cached $file$
   \end{itemize}
   Then, git will stop tracking this file, but the file still exists in your repo.
 \end{frame}
@@ -352,7 +402,7 @@ colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
   \frametitle{Some basic git commands}
   How to delte a file in your remote repo:
   \begin{itemize}
-    \item git rm <file>
+    \item git rm $file$
     \item git commit -m "remove file"
     \item git push
   \end{itemize}
@@ -370,10 +420,9 @@ colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
   \frametitle{Some basic git commands}
   How to use branch in git:
   \begin{itemize}
-    \item create new branch: git branch <branch>
-    \item create new branch(based on current branch): git checkout -b <branch>
-    \item go to other branch: git checkout <branch>
-    \item deleta branch: git branch -d <branch>
+    \item create new branch(based on current branch): git checkout -b $branch$
+    \item go to other branch: git checkout $branch$
+    \item delete branch: git branch -d $branch$
   \end{itemize}
 \end{frame}
 
@@ -388,7 +437,9 @@ colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
     \item git merge dev
     \item git push
   \end{itemize}
-  If you encounter conflicts, you need to solve them manually. You can use "lazygit" or search for "Git merge tool" online.
+  If you encounter conflicts, you need to solve them manually. \\
+  In most cases, Git will attempt to auto-merge first. If a merge conflict occurs, Git will inform you which file has a conflict, and you'll have to manually edit that file.\\
+  Suggestions: You can use "lazygit" or search for "Git merge tool" online.
 \end{frame}
 
 
@@ -396,7 +447,7 @@ colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
   \frametitle{Some basic git commands}
   How to use "git revert":
   \begin{itemize}
-    \item git revert <commit-SHA>
+    \item git revert $commit-SHA$
     \item git revert HEAD
   \end{itemize}
 \end{frame}
@@ -427,9 +478,14 @@ colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
               \item Commit changes (c).
               \item Push files (P).
               \item Create/delete branches (n/d).
-              \item Checkout branches (sp).
+              \item Checkout branches (space).
               \item Merge branches (M).
           \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{More...}
+  More usage of Git will be explored in the next year's Advanced Git Workshop. You can refer to the cheatsheet in this repository.
 \end{frame}
 
 
@@ -443,9 +499,9 @@ colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
 
 \begin{frame}{Reading Materials}
   \begin{itemize}
+      \item (Highly recommend)TheCW-Git \emph{Bilibili}. \href{https://www.bilibili.com/video/BV1Yx411f7Cu}{BV1Yx411f7Cu}
+      \item (Highly recommend)TheCW-Lazygit \emph{Bilibili}. \href{https://www.bilibili.com/video/BV1gV411k7fC}{BV1gV411k7fC}
       \item Pro Git. \href{https://git-scm.com/book/en/v2}{Git - Book}
-      \item TheCW-Git \emph{Bilibili}. \href{https://www.bilibili.com/video/BV1Yx411f7Cu}{BV1Yx411f7Cu}
-      \item TheCW-Lazygit \emph{Bilibili}. \href{https://www.bilibili.com/video/BV1gV411k7fC}{BV1gV411k7fC}
       \item \href{https://missing.csail.mit.edu/2020/course-shell/}{MIT Course}
       \item \href{https://learngitbranching.js.org/?locale=zh_CN}{Learn git online}
       \item \href{https://www.liaoxuefeng.com/wiki/896043488029600}{Liao Xuefeng's Git Tutorial(Chinese)}
