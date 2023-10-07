@@ -130,7 +130,7 @@ colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
       \item This is \textbf{not} a Bash workshop either.
       \item We are organizing this workshop primarily because many students encountered difficulties when using Git in courses ENGR151 and SilverFOCS(VG100).
       \item The most important part in this workshop is $lazygit$.
-      \item The target audience for this workshop is students who are unfamiliar with Git or do not understand the working principles of Git.
+      \item The target audience for this workshop are those who are unfamiliar with Git or do not understand the working principles of Git.
   \end{itemize}
 \end{frame}
 
@@ -299,7 +299,7 @@ colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
   These \textbf{cannot} coexist:
   \begin{itemize}
     \item \tt{hteam-10086/h1/}, a directory
-    \item \tt{hteam-10086/h/ex1.m}, a regular file
+    \item \tt{hteam-10086/h1/ex1.m}, a regular file
   \end{itemize}
 \end{frame}
 
@@ -333,6 +333,7 @@ colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
 
 \begin{frame}
   \frametitle{More...}
+  In today's workshop, you need to know how to get into your repository.\\
   More usage of Bash and Shell will be explored in the spring semester's Bash Workshop. You can refer to the cheatsheet in this repository.
 \end{frame}
 
@@ -437,12 +438,41 @@ colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
     \item git merge dev
     \item git push
   \end{itemize}
-  If you encounter conflicts, you need to solve them manually. \\
+\end{frame}
+
+\begin{frame}
+  \frametitle{Merge Conflict}
+  Sometimes, you will encounter merge conflicts in the process of merge.\\
+  What is merge conflict?\\
+  \begin{itemize}
+    \item A merge conflict is an event that occurs when Git is unable to automatically resolve differences in code between two commits.\\
+  \end{itemize}
+  What causes merge conflict?\\
+  \begin{itemize}
+    \item When two people make changes to the same line of a file.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Merge Conflict}
   In most cases, Git will attempt to auto-merge first. If a merge conflict occurs, Git will inform you which file has a conflict, and you'll have to manually edit that file.\\
-  Suggestions: You can use "lazygit" or search for "Git merge tool" online.
 \end{frame}
 
 
+\begin{frame}
+  \frametitle{How to solve Merge Conflict?}
+  \begin{itemize}
+    \item Open the file and look for Git's conflict markers.\\
+    \item Resolve the conflict by choosing which code to keep.\\
+    \item Add your changes (git add .) and commit them (git commit -m "merged branch").\\
+    \item Now, you can push your changes to the remote repository.\\
+    \item git push\\
+    \item If you want to abort the merge, you can use "git merge --abort"\\
+    \item If you want to abort the merge and go back to the state before the merge, you can use "git reset --hard HEAD"\\
+  \end{itemize}
+\end{frame}
+
+  % Suggestions: You can use "lazygit" or search for "Git merge tool" online.
 \begin{frame}
   \frametitle{Some basic git commands}
   How to use "git revert":
@@ -470,7 +500,7 @@ colbacktitle=red!50!yellow!50!white, coltitle=black,enhanced,drop fuzzy shadow,]
 
 \begin{frame}{Tasks\footnote{Operations with * will rewrite history.}}
           \begin{itemize}[<+->]
-              \item Install lazygit. You may refer to $Installation\_Lazygit$ in repo.
+              \item Install lazygit. You may refer to $Installation\_Lazygit$ in repo.(10 mins)
               \item Clone your repository.
               \item cd into your repo and type "lazygit" in terminal
               \item Navigate the interface (h/j/k/l/[/]/arrow keys).
