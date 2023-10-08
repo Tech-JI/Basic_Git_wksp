@@ -1,3 +1,5 @@
+
+
 # [Lazygit](https://github.com/jesseduffield/lazygit) Installation
 
 Official website -> https://github.com/jesseduffield/lazygit
@@ -18,20 +20,28 @@ If you have `oh-my-posh` installed, you can set an alias for `lazygit`. If you d
 
 To set alias for lazygit, you can type the command to edit the profile of powershell.
 
+If you haven't edit `$PROFILE` before, you need run commands below:
+
+```shell
+if (!(Test-Path -Path $PROFILE)) {
+  New-Item -ItemType File -Path $PROFILE -Force
+}
+```
+
 ```powershell
-notepad $PROFILE
+$ notepad $PROFILE
 ```
 
  Then add the content to the profile.
 
 ```powershell
-New-Alias -Name lg -Value lazygit
+$ New-Alias -Name lg -Value lazygit
 ```
 
 You can use following command to source the new profile and then you can use `lg` to call the lazygit.
 
 ```powershell
-. $PROFILE
+$ . $PROFILE
 ```
 
 For another way, you can download the package  and install it -> https://github.com/jesseduffield/lazygit/releases
@@ -47,7 +57,7 @@ $ brew install lazygit
 Similarly, add the following content to your `~/.zshrc` with command and source it.
 
 ```zsh
-$ echo "alias lg = 'lazygit'" >> ~/.zshrc
+$ echo "alias lg='lazygit'" >> ~/.zshrc
 $ source ~/.zshrc
 ```
 
